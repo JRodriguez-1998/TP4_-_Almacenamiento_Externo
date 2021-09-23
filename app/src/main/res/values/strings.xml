@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TPº4 - Almacenamiento Externo</string>
+    <string name="id">ID</string>
+    <string name="nombre">NOMBRE PRODUCTO</string>
+    <string name="stock">STOCK</string>
+    <string name="categoria">CATEGORIA</string>
+    <string name="agregar">AGREGAR</string>
 </resources>
