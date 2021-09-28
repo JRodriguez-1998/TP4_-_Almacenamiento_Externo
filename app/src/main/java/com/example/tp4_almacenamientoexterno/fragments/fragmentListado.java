@@ -13,6 +13,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tp4_almacenamientoexterno.MainActivity;
 import com.example.tp4_almacenamientoexterno.R;
+import com.example.tp4_almacenamientoexterno.dao.CategoriaDAO;
+import com.example.tp4_almacenamientoexterno.entidades.Categoria;
+
+import java.util.List;
 
 public class fragmentListado extends Fragment {
 
@@ -28,6 +32,9 @@ public class fragmentListado extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_listado, container, false);
+
+        CategoriaDAO dao = new CategoriaDAO();
+        List<Categoria> list = dao.GetAll();
 
         listProductos = (ListView) view.findViewById(R.id.listViewProductos);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, vProductos);
