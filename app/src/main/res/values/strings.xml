@@ -5,4 +5,6 @@
     <string name="stock">STOCK</string>
     <string name="categoria">CATEGORIA</string>
     <string name="agregar">AGREGAR</string>
+    <string name="modificar">MODIFICAR</string>
+    <string name="buscar">BUSCAR</string>
 </resources>
