@@ -1,5 +1,7 @@
 package com.example.tp4_almacenamientoexterno.dao;
 
+import android.os.AsyncTask;
+
 import com.example.tp4_almacenamientoexterno.entidades.Categoria;
 
 import java.sql.Connection;
@@ -9,8 +11,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import android.os.AsyncTask;
 
-public class CategoriaDAO {
+public class CategoriaDAO{
 
     public List<Categoria> GetAll() {
         List<Categoria> result = new ArrayList<>();
