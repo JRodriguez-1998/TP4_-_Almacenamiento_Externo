@@ -32,13 +32,13 @@
                     android:id="@+id/tvID"
                     android:layout_width="32dp"
                     android:layout_height="wrap_content"
-                    android:labelFor="@id/editTextID"
+                    android:labelFor="@id/txtID"
                     android:text="@string/id"
                     android:textSize="24sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
-                    android:id="@+id/editTextID"
+                    android:id="@+id/txtID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -73,7 +73,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextNombre"
+                android:id="@+id/txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -89,7 +89,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextStock"
+                android:id="@+id/txtStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -116,7 +116,7 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/btnModificar"
+                    android:id="@+id/btnAgregar"
                     android:layout_width="128dp"
                     android:layout_height="wrap_content"
                     android:text="@string/modificar"
