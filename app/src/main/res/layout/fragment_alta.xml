@@ -29,19 +29,21 @@
                 android:id="@+id/tvID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/editTextID"
+                android:labelFor="@id/txtID"
                 android:text="@string/id"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
-                android:id="@+id/editTextID"
+                android:id="@+id/txtID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:labelFor="@id/tvID"
                 android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -52,7 +54,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextNombre"
+                android:id="@+id/txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -68,7 +70,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextStock"
+                android:id="@+id/txtStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -95,7 +97,7 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/btnModificar"
+                    android:id="@+id/btnAgregar"
                     android:layout_width="128dp"
                     android:layout_height="wrap_content"
                     android:text="@string/agregar"

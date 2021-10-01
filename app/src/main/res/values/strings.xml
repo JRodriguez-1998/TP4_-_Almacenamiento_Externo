@@ -7,4 +7,6 @@
     <string name="modificar">MODIFICAR</string>
     <string name="buscar">BUSCAR</string>
     <string name="productos">PRODUCTOS:</string>
+    <string name="agregar">Agregar</string>
+
 </resources>
