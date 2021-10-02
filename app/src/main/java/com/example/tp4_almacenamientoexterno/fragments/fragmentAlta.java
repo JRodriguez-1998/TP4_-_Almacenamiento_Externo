@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tp4_almacenamientoexterno.R;
 import com.example.tp4_almacenamientoexterno.dao.AltaArticulo;
+import com.example.tp4_almacenamientoexterno.dao.ArticuloDAO;
+import com.example.tp4_almacenamientoexterno.dao.CargarSpinner;
 import com.example.tp4_almacenamientoexterno.entidades.Articulo;
 
 public class fragmentAlta  extends Fragment {
@@ -40,11 +42,13 @@ public class fragmentAlta  extends Fragment {
         spinnerCat = (Spinner) view.findViewById(R.id.spinnerCategoria);
         btnAgregar = (Button) view.findViewById(R.id.btnAgregar);
 
+        cargarSpinner();
+
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Articulo a = new Articulo(Integer.parseInt(txtId.getText().toString()),txtNombre.getText().toString(),
-                        Integer.parseInt(txtStock.getText().toString()),1, null);
+                        Integer.parseInt(txtStock.getText().toString()), spinnerCat.getSelectedItemPosition() +1, null);
 
                 AltaArticulo alta = new AltaArticulo();
                 alta.setArticulo(a);
@@ -59,5 +63,10 @@ public class fragmentAlta  extends Fragment {
             }
         });
         return view;
+    }
+
+    public void cargarSpinner() {
+        CargarSpinner carga = new CargarSpinner(spinnerCat, getActivity());
+        carga.execute();
     }
 }
