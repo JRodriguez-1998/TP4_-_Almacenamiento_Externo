@@ -21,8 +21,8 @@
 
         <ListView
             android:id="@+id/listViewProductos"
-            android:layout_width="352dp"
-            android:layout_height="600dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         </ListView>
     </LinearLayout>
