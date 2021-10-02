@@ -81,6 +81,13 @@ public class fragmentModificacion extends Fragment {
         btnModificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(txtID.getText().toString().isEmpty() || txtNombre.getText().toString().isEmpty() || txtStock.getText().toString().isEmpty()){
+                        Toast.makeText(getActivity(), "Faltan completar campos", Toast.LENGTH_SHORT).show();
+
+
+                }
+                else{
                 Integer id = Integer.parseInt(txtID.getText().toString());
                 String nombre = txtNombre.getText().toString();
                 Integer stock = Integer.parseInt(txtStock.getText().toString());
@@ -98,7 +105,8 @@ public class fragmentModificacion extends Fragment {
                     e.printStackTrace();
                     Toast.makeText(getActivity(), "Hubo un error al actualizar", Toast.LENGTH_SHORT).show();
                 }
-            }
+            }}
+
         });
 
         return view;

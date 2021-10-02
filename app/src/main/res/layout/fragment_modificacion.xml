@@ -46,7 +46,8 @@
                     android:inputType="textPersonName"
                     android:labelFor="@id/tvID"
                     android:minHeight="48dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:digits="0123456789"/>
             </TableRow>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -95,7 +96,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:digits="0123456789"/>
 
             <TextView
                 android:id="@+id/tvCategoria"

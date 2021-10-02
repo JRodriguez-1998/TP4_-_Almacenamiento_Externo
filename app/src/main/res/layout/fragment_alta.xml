@@ -44,7 +44,8 @@
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:digits="0123456789"/>
 
             <TextView
                 android:id="@+id/tvNombreProd"
@@ -67,7 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/stock"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                />
 
             <EditText
                 android:id="@+id/txtStock"
@@ -76,7 +78,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:digits="0123456789"/>
 
             <TextView
                 android:id="@+id/tvCategoria"
