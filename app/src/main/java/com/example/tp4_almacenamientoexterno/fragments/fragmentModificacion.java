@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tp4_almacenamientoexterno.R;
 import com.example.tp4_almacenamientoexterno.dao.BusquedaArticulo;
+import com.example.tp4_almacenamientoexterno.dao.CargarSpinner;
 import com.example.tp4_almacenamientoexterno.dao.ModificacionArticulo;
 import com.example.tp4_almacenamientoexterno.entidades.Articulo;
 
@@ -27,7 +28,7 @@ public class fragmentModificacion extends Fragment {
     private Button btnModificar;
     private EditText txtNombre;
     private EditText txtStock;
-    private Spinner spinnerCategoria;
+    private Spinner spinnerCat;
 
     public static fragmentModificacion newInstance() {
         return new fragmentModificacion();
@@ -41,7 +42,7 @@ public class fragmentModificacion extends Fragment {
         txtID = (EditText) view.findViewById(R.id.txtID);
         txtNombre = (EditText) view.findViewById(R.id.txtNombre);
         txtStock = (EditText) view.findViewById(R.id.txtStock);
-        spinnerCategoria = (Spinner) view.findViewById(R.id.spinnerCategoria);
+        spinnerCat = (Spinner) view.findViewById(R.id.spinnerCategoria);
 
         btnBuscar = (Button) view.findViewById(R.id.btnBuscar);
         btnModificar = (Button) view.findViewById(R.id.btnModificar);
@@ -59,14 +60,17 @@ public class fragmentModificacion extends Fragment {
 
                     BusquedaArticulo busqueda = new BusquedaArticulo();
                     busqueda.setId(id);
+
                     Articulo art = busqueda.execute().get();
 
                     if (art == null) {
                         Toast.makeText(getActivity(), "El ID ingresado no existe", Toast.LENGTH_LONG).show();
                         return;
                     }
-
+                    cargarSpinner();
                     SetearCamposArticulo(art);
+
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -80,7 +84,7 @@ public class fragmentModificacion extends Fragment {
                 Integer id = Integer.parseInt(txtID.getText().toString());
                 String nombre = txtNombre.getText().toString();
                 Integer stock = Integer.parseInt(txtStock.getText().toString());
-                Integer idCategoria = 1;
+                Integer idCategoria = spinnerCat.getSelectedItemPosition() + 1;
 
                 Articulo articulo = new Articulo(id, nombre, stock, idCategoria, null);
 
@@ -105,4 +109,10 @@ public class fragmentModificacion extends Fragment {
         txtStock.setText(articulo.getStock().toString());
 
     }
+
+    public void cargarSpinner() {
+        CargarSpinner carga = new CargarSpinner(spinnerCat, getActivity());
+        carga.execute();
+    }
+
 }
