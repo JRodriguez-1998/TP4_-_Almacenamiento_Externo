@@ -47,20 +47,31 @@ public class fragmentAlta  extends Fragment {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Articulo a = new Articulo(Integer.parseInt(txtId.getText().toString()),txtNombre.getText().toString(),
-                        Integer.parseInt(txtStock.getText().toString()), spinnerCat.getSelectedItemPosition() +1, null);
+                
+                if(txtId.getText().toString().isEmpty() || txtNombre.getText().toString().isEmpty() || txtStock.getText().toString().isEmpty()){
 
-                AltaArticulo alta = new AltaArticulo();
-                alta.setArticulo(a);
+                    Toast.makeText(getActivity(), "Faltan completar campos", Toast.LENGTH_SHORT).show();
+                    return;
 
-                try {
-                    String resultado = alta.execute().get();
-                    Toast.makeText(getActivity(), resultado, Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getActivity(), "Error al insertar", Toast.LENGTH_SHORT).show();
+            }
+                else
+                {
+                    Articulo a = new Articulo(Integer.parseInt(txtId.getText().toString()),txtNombre.getText().toString(),
+                            Integer.parseInt(txtStock.getText().toString()), spinnerCat.getSelectedItemPosition() +1, null);
+
+                    AltaArticulo alta = new AltaArticulo();
+                    alta.setArticulo(a);
+
+                    try {
+                        String resultado = alta.execute().get();
+                        Toast.makeText(getActivity(), resultado, Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(getActivity(), "Error al insertar", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
+
         });
         return view;
     }
