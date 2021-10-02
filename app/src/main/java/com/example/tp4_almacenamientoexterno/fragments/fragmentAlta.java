@@ -58,7 +58,6 @@ public class fragmentAlta  extends Fragment {
                 }
             }
         });
-
         return view;
     }
 }
