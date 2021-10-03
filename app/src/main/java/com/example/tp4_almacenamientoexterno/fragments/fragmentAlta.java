@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.tp4_almacenamientoexterno.R;
 import com.example.tp4_almacenamientoexterno.dao.AltaArticulo;
 import com.example.tp4_almacenamientoexterno.dao.ArticuloDAO;
+import com.example.tp4_almacenamientoexterno.dao.BusquedaArticulo;
 import com.example.tp4_almacenamientoexterno.dao.CargarSpinner;
 import com.example.tp4_almacenamientoexterno.entidades.Articulo;
 
@@ -53,22 +54,31 @@ public class fragmentAlta  extends Fragment {
                     Toast.makeText(getActivity(), "Faltan completar campos", Toast.LENGTH_SHORT).show();
                     return;
 
-            }
-                else
-                {
-                    Articulo a = new Articulo(Integer.parseInt(txtId.getText().toString()),txtNombre.getText().toString(),
+                }
+
+                try {
+                    Integer id = Integer.parseInt(txtId.getText().toString());
+
+                    BusquedaArticulo busqueda = new BusquedaArticulo();
+                    busqueda.setId(id);
+
+                    Articulo art = busqueda.execute().get();
+                    if (art != null) {
+                        Toast.makeText(getActivity(), "El ID ingresado ya existe", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Articulo a = new Articulo(id,txtNombre.getText().toString(),
                             Integer.parseInt(txtStock.getText().toString()), spinnerCat.getSelectedItemPosition() +1, null);
 
                     AltaArticulo alta = new AltaArticulo();
                     alta.setArticulo(a);
 
-                    try {
-                        String resultado = alta.execute().get();
-                        Toast.makeText(getActivity(), resultado, Toast.LENGTH_SHORT).show();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(getActivity(), "Error al insertar", Toast.LENGTH_SHORT).show();
-                    }
+                    String resultado = alta.execute().get();
+                    Toast.makeText(getActivity(), resultado, Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "Error al insertar", Toast.LENGTH_SHORT).show();
                 }
             }
 
